@@ -1,12 +1,12 @@
 import React from 'react';
-
-export default class Instrument extends React.Component {
+import './Instrument.css';
+export  class Instrument extends React.Component {
     
     constructor(props) {
         super(props);
     }
 
     render() {
-        return(<h1>potnę się żyletkami</h1>)
+        return(<div className='instrument-container'>instrument</div>)
     }
 }

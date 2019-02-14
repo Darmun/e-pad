@@ -1,5 +1,7 @@
+
 .main-board{
-    min-height:100%;
-    display: grid;
-    grid-template-columns: 1fr 200px;
+min-height:100%;
+display:grid;
+grid-template-columns: 1fr 200px;
+background-color: #282c34;
 }
