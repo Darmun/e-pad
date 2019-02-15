@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainBoard.css';
-import {Settings} from '../Settings/Settings'
+import Settings from '../Settings/Settings';
 import {Instrument} from '../Instrument/Instrument'
 
 export  class MainBoard extends React.Component {

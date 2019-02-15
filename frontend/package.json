@@ -5,6 +5,8 @@
   "proxy": "http://localhost:4000",
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/lab": "^3.0.0-alpha.30",
     "fetchival": "^0.3.3",
     "node-fetch": "^2.3.0",
     "react": "^16.8.1",
