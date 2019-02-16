@@ -6,16 +6,16 @@ import Slider from '@material-ui/lab/Slider';
 
 const styles = {
   root: {
-    width: 300,
+    width: 80,
   },
   slider: {
-    padding: '22px 0px',
+    padding: '10px 0px',
   },
 };
 
 class SimpleSlider extends React.Component {
   state = {
-    value: 50,
+    value: 70,
   };
 
   handleChange = (event, value) => {
@@ -28,7 +28,6 @@ class SimpleSlider extends React.Component {
 
     return (
       <div className={classes.root}>
-        <Typography id="label">Slider label</Typography>
         <Slider
           classes={{ container: classes.slider }}
           value={value}
