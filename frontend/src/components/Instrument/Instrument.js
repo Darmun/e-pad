@@ -15,14 +15,14 @@ export class Instrument extends React.Component {
         }
         return (<div className='instrument-container'>
             <div className='instrument' style={boardSize}>
-            <h1>hey</h1>
-            <h1>xx</h1>
-            <h1><Button/></h1>
-            <h1>you</h1>
-            <h1>are</h1>
-            <h1>holding</h1>
-            <h1>up</h1>
-            <h1>today?</h1>
+            <h1>X</h1>
+            <h1>X</h1>
+            <h1>X</h1>
+            <h1>X</h1>
+            <h1>X</h1>
+            <h1>X</h1>
+            <h1>X</h1>
+            <h1>X</h1>
             </div>
         </div>)
     }

@@ -15,6 +15,8 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import VolumeMute from '@material-ui/icons/VolumeMute';
 import ViewModule from '@material-ui/icons/ViewModule';
 import SampleList from '../SampleList/SampleList';
+import Select from '../Select/Select';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -44,7 +46,13 @@ class NestedList extends React.Component {
           <VolumeSlider/>
         </ListItem>
         <SamplesMenu title="Size" icon={<ViewModule/>}>
-         <SampleList category="4x4"/></SamplesMenu>
+         <ListItem>
+         <Select quantity="Columns"/>
+         </ListItem>
+           <ListItem>
+         <Select quantity="Rows"/>
+         </ListItem>
+         </SamplesMenu>
         <SamplesMenu title="Samples" icon={<ViewModule/>}>
         <SampleList category="Percussion"/>
         <SampleList category="Arps"/></SamplesMenu>
