@@ -39,6 +39,7 @@ class SampleList extends React.Component {
             <ListItem button className={classes.nested}>
               <ListItemText inset primary="Starred" />
             </ListItem>
+            {this.props.children}
           </List>
         </Collapse>
         </div>

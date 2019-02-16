@@ -38,21 +38,14 @@ class SamplesMenu extends React.Component {
      <div>
         <ListItem button onClick={this.handleClick}>
           <ListItemIcon>
-            <ViewModule />
+            {this.props.icon}
           </ListItemIcon>
-          <ListItemText inset primary="Samples" />
+          <ListItemText inset primary={this.props.title} />
           {this.state.open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={this.state.open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Starred" />
-            </ListItem>
-           <SampleList category='Drums'/>
-           <SampleList category='Arps'/>
+         {this.props.children}
           </List>
         </Collapse>
         </div>

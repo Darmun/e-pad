@@ -14,7 +14,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import VolumeMute from '@material-ui/icons/VolumeMute';
 import ViewModule from '@material-ui/icons/ViewModule';
-
+import SampleList from '../SampleList/SampleList';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -27,13 +27,6 @@ const styles = theme => ({
 });
 
 class NestedList extends React.Component {
-  state = {
-    open: true,
-  };
-
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
-  };
 
   render() {
     const { classes } = this.props;
@@ -50,25 +43,11 @@ class NestedList extends React.Component {
           </ListItemIcon>
           <VolumeSlider/>
         </ListItem>
-
-        <ListItem button onClick={this.handleClick}>
-          <ListItemIcon>
-            <ViewModule />
-          </ListItemIcon>
-          <ListItemText inset primary="Size" />
-          {this.state.open ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
-        <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Starred" />
-            </ListItem>
-          </List>
-        </Collapse>
-        <SamplesMenu/>
+        <SamplesMenu title="Size" icon={<ViewModule/>}>
+         <SampleList category="4x4"/></SamplesMenu>
+        <SamplesMenu title="Samples" icon={<ViewModule/>}>
+        <SampleList category="Percussion"/>
+        <SampleList category="Arps"/></SamplesMenu>
       </List>
     );
   }
