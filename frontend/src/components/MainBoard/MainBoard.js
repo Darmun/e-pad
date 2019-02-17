@@ -11,13 +11,21 @@ export  class MainBoard extends React.Component {
       boardSize: { 
         columns: 4,
         rows: 2,
-      }
-    }
+      },
+      volume: 70,
+    };
+    this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
+
+  handleVolumeChange(value){
+    this.setState({volume:value})
+  };
+
+
     render() {
         return(<div className="main-board">
         <Instrument size={this.state.boardSize}/>
-        <Settings/>
+        <Settings onChange={this.handleVolumeChange} volume ={this.state.volume}/>
         </div>)
     }
 }

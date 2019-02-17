@@ -43,7 +43,7 @@ class NestedList extends React.Component {
           <ListItemIcon>
             <VolumeMute />
           </ListItemIcon>
-          <VolumeSlider/>
+          <VolumeSlider onChange={this.props.onChange} volume ={this.props.volume}/>
         </ListItem>
         <SamplesMenu title="Size" icon={<ViewModule/>}>
          <ListItem>
