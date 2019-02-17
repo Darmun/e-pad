@@ -7,6 +7,7 @@ import Slider from '@material-ui/lab/Slider';
 const styles = {
   root: {
     width: 80,
+    paddingLeft: 16,
   },
   slider: {
     padding: '10px 0px',
@@ -14,17 +15,14 @@ const styles = {
 };
 
 class SimpleSlider extends React.Component {
-  state = {
-    value: 70,
-  };
 
   handleChange = (event, value) => {
-    this.setState({ value });
+   this.props.onChange({ value });
   };
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
+    const { value } = {value: this.props.volume}
 
     return (
       <div className={classes.root}>
@@ -44,3 +42,4 @@ SimpleSlider.propTypes = {
 };
 
 export default withStyles(styles)(SimpleSlider);
+

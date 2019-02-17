@@ -8,24 +8,30 @@ export  class MainBoard extends React.Component {
     super(props);
     this.state = {
          // on the basis of these will be calculated number of pad buttons
-      boardSize: { 
         columns: 4,
         rows: 2,
-      },
       volume: 70,
     };
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+     this.handleColumnsChange = this.handleColumnsChange.bind(this);
+      this.handleRowsChange = this.handleRowsChange.bind(this);
   }
 
   handleVolumeChange(value){
-    this.setState({volume:value})
+    this.setState({volume:value.value})
   };
 
+   handleRowsChange(value){
+    this.setState({rows: value})
+  };
 
+  handleColumnsChange(value){
+    this.setState({columns: value})
+  };
     render() {
         return(<div className="main-board">
-        <Instrument size={this.state.boardSize}/>
-        <Settings onChange={this.handleVolumeChange} volume ={this.state.volume}/>
+        <Instrument rows={this.state.rows} columns={this.state.columns}/>
+        <Settings onChange={this.handleVolumeChange} volume ={this.state.volume} rows={this.state.rows} rowsChange={this.handleRowsChange} columns={this.state.columns} columnsChange={this.handleColumnsChange} />
         </div>)
     }
 }

@@ -47,10 +47,10 @@ class NestedList extends React.Component {
         </ListItem>
         <SamplesMenu title="Size" icon={<ViewModule/>}>
          <ListItem>
-         <Select quantity="Columns"/>
+         <Select quantity="Columns" value={this.props.columns} onChange={this.props.columnsChange}/>
          </ListItem>
            <ListItem>
-         <Select quantity="Rows"/>
+         <Select quantity="Rows" value={this.props.rows} onChange={this.props.rowsChange}/>
          </ListItem>
          </SamplesMenu>
         <SamplesMenu title="Samples" icon={<ViewModule/>}>

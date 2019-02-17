@@ -27,15 +27,14 @@ const styles = theme => ({
 });
 
 class SimpleSelect extends React.Component {
-  state = {
-    age: '',
-    name: 'hai',
-    labelWidth: 50,
-  };
+constructor(props){
+  super(props);
+this.handleChange= this.handleChange.bind(this);
+}
 
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+  handleChange (event) {
+    this.props.onChange(event.target.value);
   };
 
   render() {
@@ -46,19 +45,18 @@ class SimpleSelect extends React.Component {
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor={this.props.quantity}>{this.props.quantity}</InputLabel>
           <Select
-            value={this.state.age}
+            value={this.props.value}
             onChange={this.handleChange}
-            inputProps={{
-              name: 'age',
-              id: 'age-simple',
-            }}
           >
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={2}>2</MenuItem>
+            <MenuItem value={3}>3</MenuItem>
+            <MenuItem value={4}>4</MenuItem>
+            <MenuItem value={5}>5</MenuItem>
+            <MenuItem value={6}>6</MenuItem>
           </Select>
         </FormControl>
         </form>

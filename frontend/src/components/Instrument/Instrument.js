@@ -10,8 +10,8 @@ export class Instrument extends React.Component {
 
     render() {
         const boardSize = {
-            gridTemplateColumns: `repeat(${this.props.size.columns}, 1fr)`,
-            gridTemplateRows:`repeat(${this.props.size.rows}, 1fr)`
+            gridTemplateColumns: `repeat(${this.props.columns}, 1fr)`,
+            gridTemplateRows:`repeat(${this.props.rows}, 1fr)`
         }
         return (<div className='instrument-container'>
             <div className='instrument' style={boardSize}>
