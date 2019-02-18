@@ -17,12 +17,12 @@ const styles = {
 class SimpleSlider extends React.Component {
 
   handleChange = (event, value) => {
-   this.props.onChange({ value });
+    this.props.onChange({ value });
   };
 
   render() {
     const { classes } = this.props;
-    const { value } = {value: this.props.volume}
+    const { value } = { value: this.props.volume }
 
     return (
       <div className={classes.root}>
@@ -31,7 +31,7 @@ class SimpleSlider extends React.Component {
           value={value}
           aria-labelledby="label"
           onChange={this.handleChange}
-        />
+          />
       </div>
     );
   }

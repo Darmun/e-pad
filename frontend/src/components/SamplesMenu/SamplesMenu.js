@@ -31,7 +31,7 @@ class SamplesMenu extends React.Component {
   render() {
 
     return (
-     <div>
+      <div>
         <ListItem button onClick={this.handleClick}>
           <ListItemIcon>
             {this.props.icon}
@@ -41,10 +41,10 @@ class SamplesMenu extends React.Component {
         </ListItem>
         <Collapse in={this.state.open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-         {this.props.children}
+            {this.props.children}
           </List>
         </Collapse>
-        </div>
+      </div>
     );
   }
 }

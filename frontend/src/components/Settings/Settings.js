@@ -35,7 +35,7 @@ class NestedList extends React.Component {
         component="nav"
         subheader={<ListSubheader component="div">E-pad</ListSubheader>}
         className={classes.root}
-      >
+        >
         <ListItem>
           <ListItemIcon>
             <VolumeMute />
@@ -43,16 +43,16 @@ class NestedList extends React.Component {
           <VolumeSlider onChange={this.props.onChange} volume ={this.props.volume}/>
         </ListItem>
         <SamplesMenu title="Size" icon={<ViewModule/>}>
-         <ListItem>
-         <Select quantity="Columns" value={this.props.columns} onChange={this.props.columnsChange}/>
-         </ListItem>
-           <ListItem>
-         <Select quantity="Rows" value={this.props.rows} onChange={this.props.rowsChange}/>
-         </ListItem>
-         </SamplesMenu>
+          <ListItem>
+            <Select quantity="Columns" value={this.props.columns} onChange={this.props.columnsChange}/>
+          </ListItem>
+          <ListItem>
+            <Select quantity="Rows" value={this.props.rows} onChange={this.props.rowsChange}/>
+          </ListItem>
+        </SamplesMenu>
         <SamplesMenu title="Samples" icon={<Audiotrack/>}>
-        <SampleList category="Percussion"/>
-        <SampleList category="Arps"/></SamplesMenu>
+          <SampleList category="Percussion"/>
+          <SampleList category="Arps"/></SamplesMenu>
       </List>
     );
   }

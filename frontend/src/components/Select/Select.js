@@ -10,7 +10,7 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    paddingLeft:52
+    paddingLeft: 52
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -22,13 +22,13 @@ const styles = theme => ({
 });
 
 class SimpleSelect extends React.Component {
-constructor(props){
-  super(props);
-this.handleChange= this.handleChange.bind(this);
-}
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
 
-  handleChange (event) {
+  handleChange(event) {
     this.props.onChange(event.target.value);
   };
 
@@ -42,7 +42,7 @@ this.handleChange= this.handleChange.bind(this);
           <Select
             value={this.props.value}
             onChange={this.handleChange}
-          >
+            >
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -54,11 +54,11 @@ this.handleChange= this.handleChange.bind(this);
             <MenuItem value={6}>6</MenuItem>
           </Select>
         </FormControl>
-        </form>
-        );
+      </form>
+    );
   }
 }
-        SimpleSelect.propTypes = {
+SimpleSelect.propTypes = {
   classes: PropTypes.object.isRequired
 };
 

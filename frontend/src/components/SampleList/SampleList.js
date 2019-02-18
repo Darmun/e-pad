@@ -30,7 +30,7 @@ class SampleList extends React.Component {
     const { classes } = this.props;
 
     return (
-     <div>
+      <div>
         <ListItem button onClick={this.handleClick}>
           <ListItemText inset primary={this.props.category} />
         </ListItem>
@@ -42,7 +42,7 @@ class SampleList extends React.Component {
             {this.props.children}
           </List>
         </Collapse>
-        </div>
+      </div>
     );
   }
 }
