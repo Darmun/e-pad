@@ -16,7 +16,7 @@ export class Instrument extends React.Component {
         }
         return (<div className='instrument-container'>
             <div className='instrument' style={boardSize}>
-            <MediaButton/>
+            <MediaButton volume={this.props.volume}/>
             <h1>X</h1>
             <h1>X</h1>
             <h1>X</h1>

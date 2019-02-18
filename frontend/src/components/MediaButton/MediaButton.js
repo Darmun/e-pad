@@ -19,6 +19,8 @@ class MediaButton extends React.Component {
     }
 
     render() {
+        let volumeValue = this.props.volume /100;
+        this.audio.volume = volumeValue;
         const active = {
             cursor: 'pointer',
             backgroundColor: '#fec02d',
@@ -26,7 +28,6 @@ class MediaButton extends React.Component {
         const inactive = {
             backgroundColor: 'grey',
         }
-
         return (
             <button className="pad-button" style={this.state.assigned ? active : inactive} onClick={this.playSample}></button>
         )

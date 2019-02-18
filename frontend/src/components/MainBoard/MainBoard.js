@@ -30,7 +30,7 @@ export class MainBoard extends React.Component {
   };
   render() {
     return (<div className="main-board">
-      <Instrument rows={this.state.rows} columns={this.state.columns}/>
+      <Instrument rows={this.state.rows} columns={this.state.columns} volume = {this.state.volume}/>
       <Settings onChange={this.handleVolumeChange} volume ={this.state.volume} rows={this.state.rows} rowsChange={this.handleRowsChange} columns={this.state.columns} columnsChange={this.handleColumnsChange} />
     </div>)
   }
