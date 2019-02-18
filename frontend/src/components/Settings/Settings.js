@@ -8,14 +8,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 import VolumeMute from '@material-ui/icons/VolumeMute';
 import ViewModule from '@material-ui/icons/ViewModule';
 import SampleList from '../SampleList/SampleList';
 import Select from '../Select/Select';
+import Audiotrack from '@material-ui/icons/Audiotrack';
 
 const styles = theme => ({
   root: {
@@ -53,7 +50,7 @@ class NestedList extends React.Component {
          <Select quantity="Rows" value={this.props.rows} onChange={this.props.rowsChange}/>
          </ListItem>
          </SamplesMenu>
-        <SamplesMenu title="Samples" icon={<ViewModule/>}>
+        <SamplesMenu title="Samples" icon={<Audiotrack/>}>
         <SampleList category="Percussion"/>
         <SampleList category="Arps"/></SamplesMenu>
       </List>

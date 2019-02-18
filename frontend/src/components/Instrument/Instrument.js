@@ -1,6 +1,7 @@
 import React from 'react';
 import './Instrument.css';
-import Button from '@material-ui/core/Button';
+import MediaButton from '../MediaButton/MediaButton';
+
 
 export class Instrument extends React.Component {
 
@@ -15,7 +16,7 @@ export class Instrument extends React.Component {
         }
         return (<div className='instrument-container'>
             <div className='instrument' style={boardSize}>
-            <h1>X</h1>
+            <MediaButton/>
             <h1>X</h1>
             <h1>X</h1>
             <h1>X</h1>
