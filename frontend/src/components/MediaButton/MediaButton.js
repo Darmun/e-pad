@@ -4,7 +4,7 @@ import './MediaButton.css';
 class MediaButton extends React.Component {
     constructor(props) {
         super(props);
-        this.audio = new Audio;
+        this.audio = new Audio();
         this.state = {
             assigned: true,
             sample: 'http://streaming.tdiradio.com:8000/house.mp3',
