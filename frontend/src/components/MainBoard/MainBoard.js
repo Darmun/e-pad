@@ -17,38 +17,38 @@ export class MainBoard extends React.Component {
     this.handleRowsChange = this.handleRowsChange.bind(this);
   }
 
-  handleVolumeChange(value) {
-    this.setState({ volume: value.value })
+  handleVolumeChange({value}) {
+    this.setState(volume: value )
   };
 
-  handleRowsChange(value) {
-    this.setState({ rows: value })
+  handleRowsChange(rows) {
+    this.setState({rows})
   };
 
-  handleColumnsChange(value) {
-    this.setState({ columns: value })
+  handleColumnsChange(columns) {
+    this.setState({columns})
   };
 
-  calculateBtnsCount(){
-    const btnsCount = [];
+  prepareBtnsIndexes(){
+    const btnIndexes = [];
     for (let i = 0; i < this.state.rows * this.state.columns; i++){
-    btnsCount[i] = i; 
+     btnIndexes[i] = i; 
   }
-  return btnsCount;
+  return btnIndexes;
 };
 
   render() {
-    const boardSize = {
+    const boardDimensions = {
       gridTemplateColumns: `repeat(${this.state.columns}, 1fr)`,
       gridTemplateRows: `repeat(${this.state.rows}, 1fr)`
     } 
-    const btnsConfig = this.calculateBtnsCount().map((index)=>
+    const btnArray = this.prepareBtnsIndexes().map((index)=>
 <MediaButton key ={`btn_${index}`} volume={this.state.volume} isActive={false} audioSample="http://streaming.tdiradio.com:8000/house.mp3"/>
     );
 
     return (<div className="main-board">
       <div className='flex-container'>
-        <div className ='button-container' style={boardSize}>{btnsConfig}</div>
+        <div className ='button-container' style={boardDimensions}>{btnsConfig}</div>
       </div>
       <Settings onChange={this.handleVolumeChange} volume ={this.state.volume} rows={this.state.rows} rowsChange={this.handleRowsChange} columns={this.state.columns} columnsChange={this.handleColumnsChange} />
     </div>)
