@@ -23,7 +23,6 @@ class MediaButton extends React.Component {
         this.audio.volume = volumeValue;
         const active = {
             cursor: 'pointer',
-            backgroundColor: '#fec02d',
         }
         const inactive = {
             backgroundColor: 'grey',

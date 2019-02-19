@@ -1,7 +1,6 @@
 .pad-button{
     width: 100px;
     height: 100px;
-    margin-left: 10px;
-    margin-top: 10px;
-    float:left;
+    background-color: #3e181b;
+    border: 3px solid #db1d2d;
 }

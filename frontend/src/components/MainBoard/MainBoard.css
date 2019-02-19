@@ -5,3 +5,17 @@ display:grid;
 grid-template-columns: 1fr 240px;
 background-color: #282c34;
 }
+
+.flex-container{
+    min-height:100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.button-container{
+    display:grid;
+    grid-gap: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px #000000;
+}
