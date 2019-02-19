@@ -1,9 +1,5 @@
 import React from 'react';
 import './MediaButton.css';
-// volume control
-
-// onended
-//onplay
 
 class MediaButton extends React.Component {
     constructor(props) {
