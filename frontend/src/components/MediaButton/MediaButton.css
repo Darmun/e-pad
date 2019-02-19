@@ -10,4 +10,5 @@
 }
 .inactive {
     background-color: grey;
+    border-color: grey;
 }

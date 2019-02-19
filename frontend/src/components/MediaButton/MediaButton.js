@@ -14,10 +14,14 @@ class MediaButton extends React.Component {
     }
 
     playSample() {
-
-        this.audio.play();
-        this.audio.onplay = () => {
-            this.setState({ backgroundColor: 'rgba(0, 220, 0,0.6)' });
+        if (this.props.isActive) {
+            this.audio.play();
+            this.audio.onplay = () => {
+                this.setState({ backgroundColor: 'rgba(0, 220, 0,0.6)' });
+            }
+        }
+        else {
+            return false;
         }
     }
     componentDidMount() {
