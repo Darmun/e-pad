@@ -18,7 +18,7 @@ export class MainBoard extends React.Component {
   }
 
   handleVolumeChange({value}) {
-    this.setState(volume: value )
+    this.setState({volume: value} )
   };
 
   handleRowsChange(rows) {
@@ -48,7 +48,7 @@ export class MainBoard extends React.Component {
 
     return (<div className="main-board">
       <div className='flex-container'>
-        <div className ='button-container' style={boardDimensions}>{btnsConfig}</div>
+        <div className ='button-container' style={boardDimensions}>{btnArray}</div>
       </div>
       <Settings onChange={this.handleVolumeChange} volume ={this.state.volume} rows={this.state.rows} rowsChange={this.handleRowsChange} columns={this.state.columns} columnsChange={this.handleColumnsChange} />
     </div>)
