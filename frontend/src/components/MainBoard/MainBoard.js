@@ -7,7 +7,7 @@ export class MainBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // on the basis of these will be calculated number of pad buttons
+    
       columns: 4,
       rows: 2,
       volume: 70,
