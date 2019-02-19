@@ -5,11 +5,6 @@ class MediaButton extends React.Component {
     constructor(props) {
         super(props);
         this.audio = new Audio();
-        this.state = {
-            assigned: true,
-            sample: 'http://streaming.tdiradio.com:8000/house.mp3',
-        }
-        this.audio.src = this.state.sample;
         this.playSample = this.playSample.bind(this);
     }
 
@@ -19,8 +14,10 @@ class MediaButton extends React.Component {
     }
 
     render() {
-        let volumeValue = this.props.volume /100;
+        let volumeValue = this.props.volume / 100;
+        let track = this.props.audioSample;
         this.audio.volume = volumeValue;
+        this.audio.src = track;
         const active = {
             cursor: 'pointer',
         }
@@ -28,7 +25,7 @@ class MediaButton extends React.Component {
             backgroundColor: 'grey',
         }
         return (
-            <button className="pad-button" style={this.state.assigned ? active : inactive} onClick={this.playSample}></button>
+            <button className="pad-button" style={this.props.isActive ? active : inactive} onClick={this.playSample}></button>
         )
     }
 }
