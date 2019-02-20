@@ -43,7 +43,7 @@ export class MainBoard extends React.Component {
       gridTemplateRows: `repeat(${this.state.rows}, 1fr)`
     } 
     const btnArray = this.prepareBtnsIndexes().map((index)=>
-<MediaButton key ={`btn_${index}`} volume={this.state.volume} isActive={false} audioSample="http://streaming.tdiradio.com:8000/house.mp3"/>
+<MediaButton key ={`btn_${index}`} volume={this.state.volume} isActive={true} audioSample="http://streaming.tdiradio.com:8000/house.mp3"/>
     );
 
     return (<div className="main-board">

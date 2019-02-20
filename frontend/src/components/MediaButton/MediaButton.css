@@ -3,12 +3,11 @@
     height: 100px;
     background-color: #3e181b;
     border: 3px solid #db1d2d;
-}
-
-.active {
     cursor: pointer;
 }
-.inactive {
+
+button:disabled {
     background-color: grey;
     border-color: grey;
+    cursor:default;
 }
