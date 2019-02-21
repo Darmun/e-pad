@@ -32,7 +32,7 @@ class MediaButton extends React.Component {
         this.audio.volume = this.props.volume / 100;
 
         return (
-            <button className="pad-button" disabled ={this.props.isActive} style={this.state} onClick={this.playSample}></button>
+            <button className="pad-button" disabled ={!this.props.isActive} style={this.state} onClick={this.playSample}></button>
         )
     }
 }
