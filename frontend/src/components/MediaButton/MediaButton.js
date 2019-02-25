@@ -5,19 +5,46 @@ class MediaButton extends React.Component {
     constructor(props) {
         super(props);
         this.audio = new Audio();
+        this.state = { playing : false };
         this.playSample = this.playSample.bind(this);
-        this.state = { backgroundColor: '' };
+        this.handleClick = this.handleClick.bind(this);
+        this.bindButton = this.bindButton.bind(this);
+        this.chooseButton = this.chooseButton.bind(this);
         this.audio.onended = () => {
-            this.setState({ backgroundColor: '' });
+            this.setState({ playing: false });
         }
 
     }
+    handleClick(e) {
+        if (e.altKey) {
 
+            this.chooseButton()
+        }
+        else {
+            this.playSample();
+        }
+    }
+
+    bindButton(e) {
+        console.log('Binding button...')
+        const key = e.keyCode;
+        document.addEventListener('keydown', e => {
+            if (e.keyCode === key) {
+                this.playSample();
+            }
+            document.removeEventListener('keydown', this.bindButton, false);
+        }, false)
+    }
+
+    chooseButton() {
+        document.addEventListener('keydown', this.bindButton, false);
+        console.log('Click button you want to assign to sample');
+    }
     playSample() {
         if (this.props.isActive) {
             this.audio.play();
             this.audio.onplay = () => {
-                this.setState({ backgroundColor: 'rgba(0, 220, 0,0.6)' });
+                this.setState({playing: true });
             }
         }
         else {
@@ -28,11 +55,15 @@ class MediaButton extends React.Component {
         this.audio.src = this.props.audioSample;
     }
 
+    componentWillUnmount(){
+        document.removeEventListener('keydown', this.bindButton, false);
+    }
+
     render() {
         this.audio.volume = this.props.volume / 100;
-
+const OnOffStyle = this.state.playing ? { backgroundColor: 'rgba(0, 220, 0,0.6)' } : { backgroundColor: '' };
         return (
-            <button className="pad-button" disabled ={!this.props.isActive} style={this.state} onClick={this.playSample}></button>
+            <button className="pad-button" disabled ={!this.props.isActive} style={OnOffStyle} onClick={this.handleClick}></button>
         )
     }
 }

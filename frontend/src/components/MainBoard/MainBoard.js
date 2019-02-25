@@ -43,7 +43,7 @@ export class MainBoard extends React.Component {
       <MediaButton key ={`btn_${i}`}
         volume={this.state.volume}
         isActive={true}
-        audioSample="http://streaming.tdiradio.com:8000/house.mp3"
+        audioSample="https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/CASIO%20SK-1/12[kb]SK1_CH.wav.mp3"
         />
     );
 
