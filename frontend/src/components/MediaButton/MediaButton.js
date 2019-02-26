@@ -29,16 +29,16 @@ class MediaButton extends React.Component {
         }
     }
     bindButton(e) {
-        console.log('Binding button...')
+        this.props.togglePopUp();
         const key = e.keyCode;
         this.setState({ bindedBtn: key });
-        document.addEventListener('keydown',this.triggerBtn);
+        document.addEventListener('keydown', this.triggerBtn);
         document.removeEventListener('keydown', this.bindButton, false);
     }
 
     chooseButton() {
         document.addEventListener('keydown', this.bindButton, false);
-        console.log('Click button you want to assign to sample');
+        this.props.togglePopUp();
     }
     playSample() {
         if (this.props.isActive) {
@@ -52,7 +52,7 @@ class MediaButton extends React.Component {
         }
     }
 
-     triggerBtn(e) {
+    triggerBtn(e) {
         if (e.keyCode === this.state.bindedBtn) {
             this.playSample();
         }
@@ -72,7 +72,11 @@ class MediaButton extends React.Component {
         this.audio.volume = this.props.volume / 100;
         const OnOffStyle = this.state.playing ? { backgroundColor: 'rgba(0, 220, 0,0.6)' } : { backgroundColor: '' };
         return (
-            <button className="pad-button" disabled ={!this.props.isActive} style={OnOffStyle} onClick={this.handleClick}></button>
+            <button className="pad-button"
+                disabled ={!this.props.isActive}
+                style={OnOffStyle}
+                onClick={this.handleClick}>
+            </button>
         )
     }
 }
