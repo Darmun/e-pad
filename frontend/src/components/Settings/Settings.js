@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import VolumeSlider from '../VolumeSlider/VolumeSlider';
-import SamplesMenu from '../SamplesMenu/SamplesMenu';
+import SubMenu from '../SubMenu/SubMenu';
 import { withStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
@@ -13,6 +13,7 @@ import ViewModule from '@material-ui/icons/ViewModule';
 import SampleList from '../SampleList/SampleList';
 import Select from '../Select/Select';
 import Audiotrack from '@material-ui/icons/Audiotrack';
+import Sample from '../Sample/Sample';
 
 const styles = theme => ({
   root: {
@@ -40,19 +41,34 @@ class NestedList extends React.Component {
           <ListItemIcon>
             <VolumeMute />
           </ListItemIcon>
-          <VolumeSlider onChange={this.props.onChange} volume ={this.props.volume}/>
+          <VolumeSlider
+            onChange={this.props.onChange}
+            volume ={this.props.volume}
+            />
         </ListItem>
-        <SamplesMenu title="Size" icon={<ViewModule/>}>
+        <SubMenu title="Size"
+          icon={<ViewModule />}>
           <ListItem>
-            <Select quantity="Columns" value={this.props.columns} onChange={this.props.columnsChange}/>
+            <Select
+              quantity="Columns"
+              value={this.props.columns}
+              onChange={this.props.columnsChange}
+              />
           </ListItem>
           <ListItem>
-            <Select quantity="Rows" value={this.props.rows} onChange={this.props.rowsChange}/>
+            <Select quantity="Rows"
+              value={this.props.rows}
+              onChange={this.props.rowsChange}
+              />
           </ListItem>
-        </SamplesMenu>
-        <SamplesMenu title="Samples" icon={<Audiotrack/>}>
-          <SampleList category="Percussion"/>
-          <SampleList category="Arps"/></SamplesMenu>
+        </SubMenu>
+        <SubMenu title="Samples"
+          icon={<Audiotrack />}>
+          <SampleList category="Percussion">
+          <Sample dragStart={this.props.storeDraggedItem} audioSample="https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/CASIO%20SK-1/12[kb]SK1_CH.wav.mp3"/>
+          </SampleList>
+          <SampleList category="Arps"/>
+        </SubMenu>
       </List>
     );
   }

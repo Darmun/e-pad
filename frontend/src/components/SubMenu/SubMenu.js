@@ -19,7 +19,7 @@ const styles = theme => ({
   },
 });
 
-class SamplesMenu extends React.Component {
+class SubMenu extends React.Component {
   state = {
     open: false,
   };
@@ -49,4 +49,4 @@ class SamplesMenu extends React.Component {
   }
 }
 
-export default withStyles(styles)(SamplesMenu);
+export default withStyles(styles)(SubMenu);

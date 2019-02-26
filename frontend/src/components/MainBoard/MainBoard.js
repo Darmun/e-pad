@@ -10,17 +10,23 @@ export class MainBoard extends React.Component {
       columns: 4,
       rows: 2,
       volume: 70,
-      showBindPopUp: false
+      showBindPopUp: false,
+      draggedSample:''
     };
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
     this.handleColumnsChange = this.handleColumnsChange.bind(this);
     this.handleRowsChange = this.handleRowsChange.bind(this);
     this.toggleBindPopUp = this.toggleBindPopUp.bind(this);
+    this.storeDraggedItem =this.storeDraggedItem.bind(this);
   }
 
   handleVolumeChange({value}) {
     this.setState({ volume: value })
   };
+
+  storeDraggedItem(item){
+    this.setState({draggedSample: item})
+  }
 
   handleRowsChange(rows) {
     this.setState({ rows })
@@ -48,9 +54,9 @@ export class MainBoard extends React.Component {
     const btnsArray = this.prepareBtnsIndexes().map((i) =>
       <MediaButton key ={`btn_${i}`}
         volume={this.state.volume}
-        isActive={true}
-        audioSample="https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/CASIO%20SK-1/12[kb]SK1_CH.wav.mp3"
+        isActive={false}
         togglePopUp = {this.toggleBindPopUp}
+        draggedSample ={this.state.draggedSample}
         />
     );
 
@@ -58,8 +64,8 @@ export class MainBoard extends React.Component {
     {this.state.showBindPopUp && <div className="pop-up-background">
     <div className="bind-pop-up"> Press button which will be assigned to sample:</div>
     </div> }
-      <div className='flex-container'>
-        <div className ='button-container'
+      <div className="flex-container">
+        <div className ="button-container"
           style={boardDivision}>
           {btnsArray}
         </div>
@@ -70,6 +76,7 @@ export class MainBoard extends React.Component {
         rowsChange={this.handleRowsChange}
         columns={this.state.columns}
         columnsChange={this.handleColumnsChange}
+        storeDraggedItem = {this.storeDraggedItem}
         />
     </div>)
   }

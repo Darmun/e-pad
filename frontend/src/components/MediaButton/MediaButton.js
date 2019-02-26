@@ -7,13 +7,17 @@ class MediaButton extends React.Component {
         this.audio = new Audio();
         this.state = {
             playing: false,
-            bindedBtn: ''
+            bindedBtn: null,
+            src: null,
+            isActive: false,
         };
         this.playSample = this.playSample.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.bindButton = this.bindButton.bind(this);
         this.chooseButton = this.chooseButton.bind(this);
         this.triggerBtn = this.triggerBtn.bind(this);
+        this.onDragOver = this.onDragOver.bind(this);
+        this.onDrop = this.onDrop.bind(this);
         this.audio.onended = () => {
             this.setState({ playing: false });
         }
@@ -41,7 +45,7 @@ class MediaButton extends React.Component {
         this.props.togglePopUp();
     }
     playSample() {
-        if (this.props.isActive) {
+        if (this.state.isActive) {
             this.audio.play();
             this.audio.onplay = () => {
                 this.setState({ playing: true });
@@ -58,9 +62,16 @@ class MediaButton extends React.Component {
         }
 
     }
+    onDragOver(event) {
+        event.preventDefault();
+    }
 
-    componentDidMount() {
-        this.audio.src = this.props.audioSample;
+    onDrop() {
+        this.setState({
+            src: this.props.draggedSample,
+            isActive: true
+        })
+        this.audio.src = this.state.src;
     }
 
     componentWillUnmount() {
@@ -73,7 +84,9 @@ class MediaButton extends React.Component {
         const OnOffStyle = this.state.playing ? { backgroundColor: 'rgba(0, 220, 0,0.6)' } : { backgroundColor: '' };
         return (
             <button className="pad-button"
-                disabled ={!this.props.isActive}
+                onDrop={this.onDrop}
+                onDragOver = {this.onDragOver}
+                disabled ={!this.state.isActive}
                 style={OnOffStyle}
                 onClick={this.handleClick}>
             </button>
