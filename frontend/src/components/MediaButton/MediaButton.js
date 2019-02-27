@@ -66,12 +66,13 @@ class MediaButton extends React.Component {
         event.preventDefault();
     }
 
-    onDrop() {
-        this.setState({
+   async onDrop(event) {
+      await this.setState({
             src: this.props.draggedSample,
             isActive: true
         })
         this.audio.src = this.state.src;
+        console.log(this.audio.src);
     }
 
     componentWillUnmount() {
