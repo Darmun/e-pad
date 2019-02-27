@@ -20,11 +20,15 @@ const styles = theme => ({
 });
 
 class SubMenu extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  handleClick = () => {
+  handleClick() {
     this.setState(state => ({ open: !state.open }));
   };
 
@@ -32,15 +36,28 @@ class SubMenu extends React.Component {
 
     return (
       <div>
-        <ListItem button onClick={this.handleClick}>
+        <ListItem
+          button
+          onClick = {this.handleClick}
+          >
           <ListItemIcon>
             {this.props.icon}
           </ListItemIcon>
-          <ListItemText inset primary={this.props.title} />
+          <ListItemText
+            inset
+            primary={this.props.title}
+            />
           {this.state.open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
+        <Collapse
+          in={this.state.open}
+          timeout="auto"
+          unmountOnExit
+          >
+          <List
+            component = "div"
+            disablePadding
+            >
             {this.props.children}
           </List>
         </Collapse>

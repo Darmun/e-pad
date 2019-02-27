@@ -10,6 +10,10 @@ export default class extends React.Component {
         this.handleDrag = this.handleDrag.bind(this)
     }
 
+    componentDidMount() {
+        this.audio.src = this.props.audioSample;
+    }
+
     playSample() {
         this.audio.play();
     }
@@ -19,15 +23,14 @@ export default class extends React.Component {
         this.props.dragStart(this.props.audioSample)
     }
 
-    componentDidMount() {
-        this.audio.src = this.props.audioSample;
-    }
     render() {
         return (
-            <ListItem button
-                onClick ={this.playSample}
-                draggable="true"
-                onDrag={this.handleDrag}>
+            <ListItem
+                button
+                onClick = {this.playSample}
+                draggable
+                onDrag = {this.handleDrag}
+            >
                 <ListItemText inset secondary="Test sample"/>
             </ListItem>
         )

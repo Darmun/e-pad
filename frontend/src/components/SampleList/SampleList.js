@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 
@@ -18,24 +17,40 @@ const styles = theme => ({
 });
 
 class SampleList extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
+  handleClick() {
+    this.setState(state => ({open: !state.open}));
   };
 
   render() {
-    const { classes } = this.props;
 
     return (
       <div>
-        <ListItem button onClick={this.handleClick}>
-          <ListItemText inset primary={this.props.category} />
+        <ListItem
+          button
+          onClick = {this.handleClick}
+        >
+          <ListItemText
+            inset
+            primary = {this.props.category}
+          />
         </ListItem>
-        <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
+        <Collapse
+          in = {this.state.open}
+          timeout = "auto"
+          unmountOnExit
+        >
+          <List
+            component = "div"
+            disablePadding
+          >
             {this.props.children}
           </List>
         </Collapse>

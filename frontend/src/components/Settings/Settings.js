@@ -7,7 +7,6 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import VolumeMute from '@material-ui/icons/VolumeMute';
 import ViewModule from '@material-ui/icons/ViewModule';
 import SampleList from '../SampleList/SampleList';
@@ -33,41 +32,49 @@ class NestedList extends React.Component {
 
     return (
       <List
-        component="nav"
-        subheader={<ListSubheader component="div">E-pad</ListSubheader>}
-        className={classes.root}
+        component = "nav"
+        subheader = {<ListSubheader component="div">E-pad</ListSubheader>}
+        className = {classes.root}
         >
         <ListItem>
           <ListItemIcon>
             <VolumeMute />
           </ListItemIcon>
           <VolumeSlider
-            onChange={this.props.onChange}
-            volume ={this.props.volume}
+            onChange = {this.props.onChange}
+            volume = {this.props.volume}
             />
         </ListItem>
-        <SubMenu title="Size"
-          icon={<ViewModule />}>
+        <SubMenu
+          title = "Size"
+          icon = {<ViewModule />}
+          >
           <ListItem>
             <Select
-              quantity="Columns"
-              value={this.props.columns}
-              onChange={this.props.columnsChange}
+              quantity = "Columns"
+              value = {this.props.columns}
+              onChange = {this.props.columnsChange}
               />
           </ListItem>
           <ListItem>
-            <Select quantity="Rows"
-              value={this.props.rows}
-              onChange={this.props.rowsChange}
+            <Select
+              quantity = "Rows"
+              value = {this.props.rows}
+              onChange = {this.props.rowsChange}
               />
           </ListItem>
         </SubMenu>
-        <SubMenu title="Samples"
-          icon={<Audiotrack />}>
-          <SampleList category="Percussion">
-          <Sample dragStart={this.props.storeDraggedItem} audioSample="https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/CASIO%20SK-1/12[kb]SK1_CH.wav.mp3"/>
+        <SubMenu
+          title = "Samples"
+          icon = {<Audiotrack />}
+          >
+          <SampleList category ="Percussion">
+            <Sample
+              dragStart = {this.props.storeDraggedItem}
+              audioSample ="https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/CASIO%20SK-1/12[kb]SK1_CH.wav.mp3"
+              />
           </SampleList>
-          <SampleList category="Arps"/>
+          <SampleList category = "Arps"/>
         </SubMenu>
       </List>
     );

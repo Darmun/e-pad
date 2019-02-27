@@ -27,18 +27,22 @@ class SimpleSelect extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-
   handleChange(event) {
     this.props.onChange(event.target.value);
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
 
     return (
-      <form className={classes.root} autoComplete="off">
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor={this.props.quantity}>{this.props.quantity}</InputLabel>
+      <form
+        className = {classes.root}
+        autoComplete="off"
+        >
+        <FormControl className = {classes.formControl}>
+          <InputLabel htmlFor = {this.props.quantity}>
+            {this.props.quantity}
+          </InputLabel>
           <Select
             value={this.props.value}
             onChange={this.handleChange}

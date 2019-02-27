@@ -11,29 +11,29 @@ export class MainBoard extends React.Component {
       rows: 2,
       volume: 70,
       showBindPopUp: false,
-      draggedSample:''
+      draggedSample: ''
     };
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
     this.handleColumnsChange = this.handleColumnsChange.bind(this);
     this.handleRowsChange = this.handleRowsChange.bind(this);
     this.toggleBindPopUp = this.toggleBindPopUp.bind(this);
-    this.storeDraggedItem =this.storeDraggedItem.bind(this);
+    this.storeDraggedItem = this.storeDraggedItem.bind(this);
   }
 
   handleVolumeChange({value}) {
-    this.setState({ volume: value })
+    this.setState({volume: value})
   };
 
-  storeDraggedItem(item){
+  storeDraggedItem(item) {
     this.setState({draggedSample: item})
   }
 
   handleRowsChange(rows) {
-    this.setState({ rows })
+    this.setState({rows})
   };
 
   handleColumnsChange(columns) {
-    this.setState({ columns })
+    this.setState({columns})
   };
 
   prepareBtnsIndexes() {
@@ -42,7 +42,7 @@ export class MainBoard extends React.Component {
     return btnIndexes;
   };
 
-  toggleBindPopUp(){
+  toggleBindPopUp() {
     this.setState({showBindPopUp: !this.state.showBindPopUp});
   }
 
@@ -52,30 +52,37 @@ export class MainBoard extends React.Component {
       gridTemplateRows: `repeat(${this.state.rows}, 1fr)`
     }
     const btnsArray = this.prepareBtnsIndexes().map((i) =>
-      <MediaButton key ={`btn_${i}`}
-        volume={this.state.volume}
-        isActive={false}
+      <MediaButton
+        key = {`btn_${i}`}
+        volume = {this.state.volume}
+        isActive = {false}
         togglePopUp = {this.toggleBindPopUp}
-        draggedSample ={this.state.draggedSample}
+        draggedSample = {this.state.draggedSample}
         />
     );
 
     return (<div className="main-board">
-    {this.state.showBindPopUp && <div className="pop-up-background">
-    <div className="bind-pop-up"> Press button which will be assigned to sample:</div>
-    </div> }
-      <div className="flex-container">
-        <div className ="button-container"
-          style={boardDivision}>
+      {this.state.showBindPopUp && (
+        <div className = "pop-up-background">
+          <div className = "bind-pop-up">
+            Press button which will be assigned to sample:
+          </div>
+        </div>
+        )}
+      <div className = "flex-container">
+        <div
+          className ="button-container"
+          style = {boardDivision}>
           {btnsArray}
         </div>
       </div>
-      <Settings onChange={this.handleVolumeChange}
-        volume ={this.state.volume}
-        rows={this.state.rows}
-        rowsChange={this.handleRowsChange}
-        columns={this.state.columns}
-        columnsChange={this.handleColumnsChange}
+      <Settings
+        onChange = {this.handleVolumeChange}
+        volume = {this.state.volume}
+        rows = {this.state.rows}
+        rowsChange = {this.handleRowsChange}
+        columns = {this.state.columns}
+        columnsChange = {this.handleColumnsChange}
         storeDraggedItem = {this.storeDraggedItem}
         />
     </div>)

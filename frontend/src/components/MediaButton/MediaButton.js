@@ -18,11 +18,20 @@ class MediaButton extends React.Component {
         this.triggerBtn = this.triggerBtn.bind(this);
         this.onDragOver = this.onDragOver.bind(this);
         this.onDrop = this.onDrop.bind(this);
+
+    }
+
+    componentDidMount() {
         this.audio.onended = () => {
             this.setState({ playing: false });
         }
-
     }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.bindButton, false);
+        document.removeEventListener('keydown', this.triggerBtn);
+    }
+
     handleClick(e) {
         if (e.altKey) {
 
@@ -32,6 +41,7 @@ class MediaButton extends React.Component {
             this.playSample();
         }
     }
+
     bindButton(e) {
         this.props.togglePopUp();
         const key = e.keyCode;
@@ -44,6 +54,7 @@ class MediaButton extends React.Component {
         document.addEventListener('keydown', this.bindButton, false);
         this.props.togglePopUp();
     }
+
     playSample() {
         if (this.state.isActive) {
             this.audio.play();
@@ -62,34 +73,30 @@ class MediaButton extends React.Component {
         }
 
     }
+
     onDragOver(event) {
         event.preventDefault();
     }
 
-   async onDrop(event) {
-      await this.setState({
+    async onDrop() {
+        await this.setState({
             src: this.props.draggedSample,
             isActive: true
         })
         this.audio.src = this.state.src;
-        console.log(this.audio.src);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('keydown', this.bindButton, false);
-        document.removeEventListener('keydown', this.triggerBtn);
     }
 
     render() {
         this.audio.volume = this.props.volume / 100;
         const OnOffStyle = this.state.playing ? { backgroundColor: 'rgba(0, 220, 0,0.6)' } : { backgroundColor: '' };
         return (
-            <button className="pad-button"
-                onDrop={this.onDrop}
+            <button
+                className = "pad-button"
+                onDrop = {this.onDrop}
                 onDragOver = {this.onDragOver}
-                disabled ={!this.state.isActive}
-                style={OnOffStyle}
-                onClick={this.handleClick}>
+                disabled = {!this.state.isActive}
+                style = {OnOffStyle}
+                onClick = {this.handleClick}>
             </button>
         )
     }
