@@ -55,17 +55,23 @@ const DialogActions = withStyles(theme => ({
 }))(MuiDialogActions);
 
 class HelpInfo extends React.Component {
-  state = {
+  constructor(props){
+    super(props)
+  this.state = {
     open: false,
   };
+  
+this.handleClickOpen = this.handleClickOpen.bind(this)
+this.handleClose = this.handleClose.bind(this)
+  }
 
-  handleClickOpen = () => {
+  handleClickOpen () {
     this.setState({
       open: true,
     });
   };
 
-  handleClose = () => {
+  handleClose () {
     this.setState({ open: false });
   };
 
@@ -97,11 +103,14 @@ class HelpInfo extends React.Component {
             Select sample from the categories of "Sample" menu.
             </Typography>
             <Typography gutterBottom>
-              You can check the sample by single clicking on the item in the sample list, and stop it by double clicking it. 
-              Drag the list item and drop it on the pad button to assign the track. Once button is active, it can be triggered by single click. 
+              You can check the sample by single clicking on the 
+              item in the sample list, and stop it by double clicking it. 
+              Drag the list item and drop it on the pad button to assign the track. 
+              Once button is active, it can be triggered by single click. 
             </Typography>
             <Typography gutterBottom>
-               Active pad button can be bind to keyboard button: hold alt and click on the pad-button, and then press the key you want to assign.
+               Active pad button can be bind to keyboard button: 
+               hold alt and click on the pad-button, and then press the key you want to assign.
             </Typography>
           </DialogContent>
           <DialogActions>

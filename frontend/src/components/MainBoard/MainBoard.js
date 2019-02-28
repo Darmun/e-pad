@@ -48,10 +48,12 @@ export class MainBoard extends React.Component {
   }
 
   render() {
+    
     const boardDivision = {
       gridTemplateColumns: `repeat(${this.state.columns}, 1fr)`,
       gridTemplateRows: `repeat(${this.state.rows}, 1fr)`
     }
+
     const btnsArray = this.prepareBtnsIndexes().map((i) =>
       <MediaButton
         key = {`btn_${i}`}
