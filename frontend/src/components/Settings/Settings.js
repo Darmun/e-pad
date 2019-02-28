@@ -13,6 +13,7 @@ import SampleList from '../SampleList/SampleList';
 import Select from '../Select/Select';
 import Audiotrack from '@material-ui/icons/Audiotrack';
 import Sample from '../Sample/Sample';
+import Arp from '../../Data/Arpeggios/130_A_G_Arps_SP_01.wav'
 
 const styles = theme => ({
   root: {
@@ -24,6 +25,10 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 4,
   },
 });
+
+function makeList (sampleArray){
+  return sampleList.map(sample => <Sample/>)
+}
 
 class NestedList extends React.Component {
 
@@ -71,7 +76,7 @@ class NestedList extends React.Component {
           <SampleList category ="Percussion">
             <Sample
               dragStart = {this.props.storeDraggedItem}
-              audioSample ="https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/LO%20FI%20and%208%20BIT%20KITS/CASIO%20SK-1/12[kb]SK1_CH.wav.mp3"
+              audioSample = {Arp}
               />
           </SampleList>
           <SampleList category = "Arps"/>
