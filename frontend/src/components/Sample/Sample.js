@@ -11,7 +11,7 @@ export default class extends React.Component {
     }
 
     componentDidMount() {
-        this.audio.src = this.props.audioSample;
+        this.audio.src = this.props.audioSample.src;
     }
 
     playSample() {
@@ -20,7 +20,7 @@ export default class extends React.Component {
 
     handleDrag(event) {
         event.preventDefault();
-        this.props.dragStart(this.props.audioSample)
+        this.props.dragStart(this.props.audioSample.src)
     }
 
     render() {
@@ -31,7 +31,7 @@ export default class extends React.Component {
                 draggable
                 onDrag = {this.handleDrag}
             >
-                <ListItemText inset secondary="Test sample"/>
+                <ListItemText inset secondary={this.props.audioSample.name}/>
             </ListItem>
         )
     }

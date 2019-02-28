@@ -3,6 +3,7 @@ min-height:100%;
 display:grid;
 grid-template-columns: 1fr 240px;
 background-color: #282c34;
+overflow:hidden;
 }
 
 .flex-container{

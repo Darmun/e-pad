@@ -14,26 +14,35 @@ import Select from '../Select/Select';
 import Audiotrack from '@material-ui/icons/Audiotrack';
 import Sample from '../Sample/Sample';
 import Arp from '../../Data/Arpeggios/130_A_G_Arps_SP_01.wav'
+import {arps, kicks, claps, percussion} from  '../../Data/Samples';
 
 const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
+    position: 'relative',
+    maxHeight: '99vh',
+    overflowY: 'auto'
   },
   nested: {
     paddingLeft: theme.spacing.unit * 4,
   },
 });
 
-function makeList (sampleArray){
-  return sampleList.map(sample => <Sample/>)
-}
+
 
 class NestedList extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const trackList = sampleArray => sampleArray.map(track => <Sample dragStart = {this.props.storeDraggedItem}
+      audioSample = {track} />)
+
+    const arpList = trackList(arps);
+    const kickList = trackList(kicks);
+    const clapList = trackList(claps);
+    const percussionList = trackList(percussion);
 
     return (
       <List
@@ -74,12 +83,17 @@ class NestedList extends React.Component {
           icon = {<Audiotrack />}
           >
           <SampleList category ="Percussion">
-            <Sample
-              dragStart = {this.props.storeDraggedItem}
-              audioSample = {Arp}
-              />
+            {percussionList}
           </SampleList>
-          <SampleList category = "Arps"/>
+          <SampleList category = "Arps">
+            {arpList}
+          </SampleList>
+           <SampleList category ="Kicks">
+            {kickList}
+          </SampleList>
+          <SampleList category ="Claps">
+            {clapList}
+          </SampleList>
         </SubMenu>
       </List>
     );
