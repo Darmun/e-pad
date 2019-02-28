@@ -45,7 +45,9 @@ class MediaButton extends React.Component {
     bindButton(e) {
         this.props.togglePopUp();
         const key = e.keyCode;
-        this.setState({ bindedBtn: key });
+        if (key !== 27) {
+            this.setState({ bindedBtn: key });
+        }
         document.addEventListener('keydown', this.triggerBtn);
         document.removeEventListener('keydown', this.bindButton, false);
     }

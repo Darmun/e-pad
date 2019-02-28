@@ -1,12 +1,12 @@
 import React from 'react';
-import {ListItem, ListItemText} from '@material-ui/core'
-
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 export default class extends React.Component {
     constructor(props) {
         super(props);
         this.audio = new Audio();
-        this.playSample = this.playSample.bind(this)
+        this.playToggle = this.playToggle.bind(this)
         this.handleDrag = this.handleDrag.bind(this)
     }
 
@@ -14,8 +14,14 @@ export default class extends React.Component {
         this.audio.src = this.props.audioSample.src;
     }
 
-    playSample() {
-        this.audio.play();
+    playToggle() {
+        if (this.audio.paused){
+            this.audio.play();
+        }
+        else{
+            this.audio.pause();
+            this.audio.currentTime = 0;
+        }
     }
 
     handleDrag(event) {
@@ -24,10 +30,11 @@ export default class extends React.Component {
     }
 
     render() {
+        this.audio.volume = this.props.volume / 100;
         return (
             <ListItem
                 button
-                onClick = {this.playSample}
+                onClick = {this.playToggle}
                 draggable
                 onDrag = {this.handleDrag}
             >

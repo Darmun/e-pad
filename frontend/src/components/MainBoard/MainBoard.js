@@ -2,6 +2,7 @@ import React from 'react';
 import './MainBoard.css';
 import Settings from '../Settings/Settings';
 import MediaButton from '../MediaButton/MediaButton';
+import Typography from '@material-ui/core/Typography';
 
 export class MainBoard extends React.Component {
   constructor(props) {
@@ -21,19 +22,19 @@ export class MainBoard extends React.Component {
   }
 
   handleVolumeChange({value}) {
-    this.setState({volume: value})
+    this.setState({ volume: value })
   };
 
   storeDraggedItem(item) {
-    this.setState({draggedSample: item})
+    this.setState({ draggedSample: item })
   }
 
   handleRowsChange(rows) {
-    this.setState({rows})
+    this.setState({ rows })
   };
 
   handleColumnsChange(columns) {
-    this.setState({columns})
+    this.setState({ columns })
   };
 
   prepareBtnsIndexes() {
@@ -43,7 +44,7 @@ export class MainBoard extends React.Component {
   };
 
   toggleBindPopUp() {
-    this.setState({showBindPopUp: !this.state.showBindPopUp});
+    this.setState({ showBindPopUp: !this.state.showBindPopUp });
   }
 
   render() {
@@ -65,10 +66,12 @@ export class MainBoard extends React.Component {
       {this.state.showBindPopUp && (
         <div className = "pop-up-background">
           <div className = "bind-pop-up">
-            Press button which will be assigned to sample:
+            <Typography  gutterBottom>
+              Press button which will be assigned to sample or press escape to return:
+            </Typography>
           </div>
         </div>
-        )}
+      ) }
       <div className = "flex-container">
         <div
           className ="button-container"
