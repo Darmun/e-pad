@@ -23,7 +23,7 @@ const arps = [
     { name: '100_C_Arps_SP_01', src: Arp1 },
     { name: '110_E_Arps_SP_01', src: Arp2 },
     { name: '130_A_G_Arps_SP_01', src: Arp3 },
-    { name: '130_A_G_Arps_SP_01', src: Arp4 },
+    { name: '130_F_Arps_SP_01', src: Arp4 },
     ]
 
 const kicks = [

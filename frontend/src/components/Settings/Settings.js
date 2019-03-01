@@ -34,20 +34,16 @@ const styles = theme => ({
 
 class NestedList extends React.Component {
 
-  render() {
-    const { classes } = this.props;
-
-    const trackList = sampleArray => sampleArray.map(track =>
+  trackList = sampleArray => sampleArray.map(track =>
       <Sample
+        key = {track.name}
         dragStart = {this.props.storeDraggedItem}
         audioSample = {track}
         volume = {this.props.volume}
         />)
 
-    const arpList = trackList(arps);
-    const kickList = trackList(kicks);
-    const clapList = trackList(claps);
-    const percussionList = trackList(percussion);
+  render() {
+    const { classes } = this.props;
 
     return (
       <List
@@ -88,16 +84,16 @@ class NestedList extends React.Component {
           icon = {<Audiotrack />}
           >
           <SampleList category ="Percussion">
-            {percussionList}
+            {this.trackList(percussion)}
           </SampleList>
           <SampleList category = "Arps">
-            {arpList}
+            {this.trackList(arps)}
           </SampleList>
           <SampleList category ="Kicks">
-            {kickList}
+            {this.trackList(kicks)}
           </SampleList>
           <SampleList category ="Claps">
-            {clapList}
+            {this.trackList(claps)}
           </SampleList>
         </SubMenu>
         <HelpInfo />
