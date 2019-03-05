@@ -26,29 +26,30 @@ class SampleList extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({open: !state.open}));
+    this.setState(state => ({
+      open: !state.open,
+    }));
   };
 
   render() {
-
     return (
       <div>
         <ListItem
           button
-          onClick = {this.handleClick}
+          onClick={this.handleClick}
         >
           <ListItemText
             inset
-            primary = {this.props.category}
+            primary={this.props.category}
           />
         </ListItem>
         <Collapse
-          in = {this.state.open}
-          timeout = "auto"
+          in={this.state.open}
+          timeout="auto"
           unmountOnExit
         >
           <List
-            component = "div"
+            component="div"
             disablePadding
           >
             {this.props.children}
@@ -56,7 +57,7 @@ class SampleList extends React.Component {
         </Collapse>
       </div>
     );
-  }
-}
+  };
+};
 
 export default withStyles(styles)(SampleList);

@@ -17,23 +17,23 @@ class SimpleSlider extends React.Component {
 constructor(props){
   super(props);
   this.handleChange = this.handleChange.bind(this);
-}
+};
 
   handleChange (event, value) {
     this.props.onChange({ value });
   };
 
   render() {
-    const {classes} = this.props;
-    const {value} = {value: this.props.volume}
+    const {classes}=this.props;
+    const {value}={value: this.props.volume};
 
     return (
-      <div className = {classes.root}>
+      <div className={classes.root}>
         <Slider
-          classes = {{container: classes.slider}}
-          value = {value}
-          aria-labelledby = "label"
-          onChange = {this.handleChange}
+          classes={{container: classes.slider}}
+          value={value}
+          aria-labelledby="label"
+          onChange={this.handleChange}
           />
       </div>
     );

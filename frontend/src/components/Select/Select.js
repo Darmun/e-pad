@@ -33,23 +33,25 @@ class SimpleSelect extends React.Component {
 
   render() {
     const {classes} = this.props;
-    const controlRange = [1, 2, 3, 4, 5, 6];
+    const controlRange = [1, 2, 3, 4, 5, 6]; // available size of columns/rows
 
     return (
       <form
-        className = {classes.root}
-        autoComplete = "off"
+        className={classes.root}
+        autoComplete="off"
         >
-        <FormControl className = {classes.formControl}>
-          <InputLabel htmlFor = {this.props.quantity}>
+        <FormControl className={classes.formControl}>
+          <InputLabel htmlFor={this.props.quantity}>
             {this.props.quantity}
           </InputLabel>
           <Select
-            value = {this.props.value}
-            onChange = {this.handleChange}
+            value={this.props.value}
+            onChange={this.handleChange}
             >
             {controlRange.map(number => 
-              <MenuItem key = {number} value = {number}>
+              <MenuItem
+               key={number}
+               value={number}>
                 {number}
               </MenuItem>
             )}

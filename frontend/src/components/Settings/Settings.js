@@ -47,54 +47,54 @@ class NestedList extends React.Component {
 
     return (
       <List
-        component = "nav"
-        subheader = {<ListSubheader component = "div">
+        component="nav"
+        subheader={<ListSubheader component="div">
           E-pad
         </ListSubheader>}
-        className = {classes.root}
+        className={classes.root}
         >
         <ListItem>
           <ListItemIcon>
             <VolumeMute />
           </ListItemIcon>
           <VolumeSlider
-            onChange = {this.props.onChange}
-            volume = {this.props.volume}
+            onChange={this.props.onChange}
+            volume={this.props.volume}
             />
         </ListItem>
         <SubMenu
-          title = "Size"
-          icon = {<ViewModule />}
+          title="Size"
+          icon={<ViewModule />}
           >
           <ListItem>
             <Select
-              quantity = "Columns"
-              value = {this.props.boardConfig.columns}
-              onChange = {this.props.columnsChange}
+              quantity="Columns"
+              value={this.props.boardConfig.columns}
+              onChange={this.props.columnsChange}
               />
           </ListItem>
           <ListItem>
             <Select
-              quantity = "Rows"
-              value = {this.props.boardConfig.rows}
-              onChange = {this.props.rowsChange}
+              quantity="Rows"
+              value={this.props.boardConfig.rows}
+              onChange={this.props.rowsChange}
               />
           </ListItem>
         </SubMenu>
         <SubMenu
-          title = "Samples"
-          icon = {<Audiotrack />}
+          title="Samples"
+          icon={<Audiotrack />}
           >
-          <SampleList category = "Percussion">
+          <SampleList category="Percussion">
             {this.trackList(percussion)}
           </SampleList>
-          <SampleList category = "Arps">
+          <SampleList category="Arps">
             {this.trackList(arps)}
           </SampleList>
-          <SampleList category = "Kicks">
+          <SampleList category="Kicks">
             {this.trackList(kicks)}
           </SampleList>
-          <SampleList category = "Claps">
+          <SampleList category="Claps">
             {this.trackList(claps)}
           </SampleList>
         </SubMenu>

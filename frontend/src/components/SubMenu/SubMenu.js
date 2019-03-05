@@ -30,7 +30,8 @@ class SubMenu extends React.Component {
 
   handleClick() {
     this.setState(state => ({ 
-      open: !state.open }));
+      open: !state.open, 
+    }));
   };
 
   render() {
@@ -39,24 +40,24 @@ class SubMenu extends React.Component {
       <div>
         <ListItem
           button
-          onClick = {this.handleClick}
+          onClick={this.handleClick}
           >
           <ListItemIcon>
             {this.props.icon}
           </ListItemIcon>
           <ListItemText
             inset
-            primary = {this.props.title}
+            primary={this.props.title}
             />
           {this.state.open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse
-          in = {this.state.open}
-          timeout = "auto"
+          in={this.state.open}
+          timeout="auto"
           unmountOnExit
           >
           <List
-            component = "div"
+            component="div"
             disablePadding
             >
             {this.props.children}
@@ -64,7 +65,7 @@ class SubMenu extends React.Component {
         </Collapse>
       </div>
     );
-  }
-}
+  };
+};
 
 export default withStyles(styles)(SubMenu);

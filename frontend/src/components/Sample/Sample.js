@@ -8,38 +8,42 @@ export default class extends React.Component {
         this.audio = new Audio();
         this.playToggle = this.playToggle.bind(this);
         this.handleDrag = this.handleDrag.bind(this);
-    }
+    };
 
     componentDidMount() {
         this.audio.src = this.props.audioSample.src;
-    }
+    };
 
     playToggle() {
         if (this.audio.paused){
             this.audio.play();
         }
-        else{
+        else {
             this.audio.pause();
             this.audio.currentTime = 0;
-        }
-    }
+        };
+    };
 
     handleDrag(event) {
         event.preventDefault();
         this.props.dragStart(this.props.audioSample.src)
-    }
+    };
 
     render() {
         this.audio.volume = this.props.volume / 100;
+        
         return (
             <ListItem
                 button
-                onClick = {this.playToggle}
+                onClick={this.playToggle}
                 draggable
-                onDrag = {this.handleDrag}
+                onDrag={this.handleDrag}
             >
-                <ListItemText inset secondary = {this.props.audioSample.name}/>
+                <ListItemText
+                    inset
+                    secondar={this.props.audioSample.name}
+                />
             </ListItem>
-        )
-    }
+        );
+    };
 }

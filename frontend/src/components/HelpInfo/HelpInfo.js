@@ -28,7 +28,9 @@ const DialogTitle = withStyles(theme => ({
 }))(props => {
   const { children, classes, onClose } = props;
   return (
-    <MuiDialogTitle disableTypography className = {classes.root}>
+    <MuiDialogTitle
+      disableTypography
+      className = {classes.root}>
       <Typography variant="h6">
       {children}
       </Typography>
@@ -68,7 +70,7 @@ class HelpInfo extends React.Component {
   
 this.handleClickOpen = this.handleClickOpen.bind(this)
 this.handleClose = this.handleClose.bind(this)
-  }
+  };
 
   handleClickOpen () {
     this.setState({
@@ -77,7 +79,9 @@ this.handleClose = this.handleClose.bind(this)
   };
 
   handleClose () {
-    this.setState({ open: false });
+    this.setState({ 
+      open: false 
+    });
   };
 
   render() {
@@ -85,50 +89,52 @@ this.handleClose = this.handleClose.bind(this)
       <div>
         <ListItem
           button
-          onClick = {this.handleClickOpen}>
+          onClick={this.handleClickOpen}>
           <ListItemIcon>
             <Help />
           </ListItemIcon>
-          <ListItemText inset primary = "Help" />
+          <ListItemText
+            inset
+            primary="Help"/>
         </ListItem>
         <Dialog
-          onClose = {this.handleClose}
-          aria-labelledby = "customized-dialog-title"
-          open = {this.state.open}
-        >
-          <DialogTitle
-            id = "customized-dialog-title"
-            onClose = {this.handleClose}
+          onClose={this.handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={this.state.open}
           >
+          <DialogTitle
+            id="customized-dialog-title"
+            onClose={this.handleClose}
+            >
             Pad Configuration
           </DialogTitle>
           <DialogContent>
             <Typography gutterBottom>
-              Use slider to control the volume of the e-pad. 
+              Use slider to control the volume of the e-pad.
             </Typography>
-               <Typography gutterBottom> 
+            <Typography gutterBottom>
               Adjust the size of the pad using "Size" menu.
             </Typography>
-               <Typography gutterBottom>
-            Select sample from the categories of "Sample" menu.
+            <Typography gutterBottom>
+              Select sample from the categories of "Sample" menu.
             </Typography>
             <Typography gutterBottom>
-              You can check the sample by single clicking on the 
-              item in the sample list, and stop it by double clicking it. 
-              Drag the list item and drop it on the pad button to assign the track. 
-              Once button is active, it can be triggered by single click. 
+              You can check the sample by single clicking on the
+              item in the sample list, and stop it by double clicking it.
+              Drag the list item and drop it on the pad button to assign the track.
+              Once button is active, it can be triggered by single click.
             </Typography>
             <Typography gutterBottom>
-               Active pad button can be bind to keyboard button: 
-               hold alt and click on the pad-button, and then press 
-               the key you want to assign.
+              Active pad button can be bind to keyboard button:
+              hold alt and click on the pad-button, and then press
+              the key you want to assign.
             </Typography>
           </DialogContent>
           <DialogActions>
             <Button
-              onClick = {this.handleClose}
-              color = "primary">
-                Close
+              onClick={this.handleClose}
+              color="primary">
+              Close
             </Button>
           </DialogActions>
         </Dialog>
