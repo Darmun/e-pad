@@ -25,7 +25,7 @@ class SimpleSelect extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-  }
+  };
 
   handleChange(event) {
     this.props.onChange(event.target.value);
@@ -33,29 +33,26 @@ class SimpleSelect extends React.Component {
 
   render() {
     const {classes} = this.props;
+    const controlRange = [1, 2, 3, 4, 5, 6];
 
     return (
       <form
         className = {classes.root}
-        autoComplete="off"
+        autoComplete = "off"
         >
         <FormControl className = {classes.formControl}>
           <InputLabel htmlFor = {this.props.quantity}>
             {this.props.quantity}
           </InputLabel>
           <Select
-            value={this.props.value}
-            onChange={this.handleChange}
+            value = {this.props.value}
+            onChange = {this.handleChange}
             >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-            <MenuItem value={5}>5</MenuItem>
-            <MenuItem value={6}>6</MenuItem>
+            {controlRange.map(number => 
+              <MenuItem key = {number} value = {number}>
+                {number}
+              </MenuItem>
+            )}
           </Select>
         </FormControl>
       </form>

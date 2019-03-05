@@ -28,10 +28,15 @@ const DialogTitle = withStyles(theme => ({
 }))(props => {
   const { children, classes, onClose } = props;
   return (
-    <MuiDialogTitle disableTypography className={classes.root}>
-      <Typography variant="h6">{children}</Typography>
+    <MuiDialogTitle disableTypography className = {classes.root}>
+      <Typography variant="h6">
+      {children}
+      </Typography>
       {onClose ? (
-        <IconButton aria-label="Close" className={classes.closeButton} onClick={onClose}>
+        <IconButton 
+        aria-label = "Close" 
+        className = {classes.closeButton} 
+        onClick = {onClose}>
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -78,18 +83,23 @@ this.handleClose = this.handleClose.bind(this)
   render() {
     return (
       <div>
-        <ListItem button onClick = {this.handleClickOpen}>
-        <ListItemIcon>
+        <ListItem
+          button
+          onClick = {this.handleClickOpen}>
+          <ListItemIcon>
             <Help />
           </ListItemIcon>
-        <ListItemText inset primary="Help" />
+          <ListItemText inset primary = "Help" />
         </ListItem>
         <Dialog
-          onClose={this.handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={this.state.open}
+          onClose = {this.handleClose}
+          aria-labelledby = "customized-dialog-title"
+          open = {this.state.open}
         >
-          <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
+          <DialogTitle
+            id = "customized-dialog-title"
+            onClose = {this.handleClose}
+          >
             Pad Configuration
           </DialogTitle>
           <DialogContent>
@@ -110,12 +120,15 @@ this.handleClose = this.handleClose.bind(this)
             </Typography>
             <Typography gutterBottom>
                Active pad button can be bind to keyboard button: 
-               hold alt and click on the pad-button, and then press the key you want to assign.
+               hold alt and click on the pad-button, and then press 
+               the key you want to assign.
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Close
+            <Button
+              onClick = {this.handleClose}
+              color = "primary">
+                Close
             </Button>
           </DialogActions>
         </Dialog>

@@ -7,8 +7,8 @@ class MediaButton extends React.Component {
         this.audio = new Audio();
         this.state = {
             playing: false,
-            bindedBtn: null,
-            src: null,
+            bindedBtn: '',
+            src: '',
             isActive: false,
         };
         this.playSample = this.playSample.bind(this);
@@ -35,7 +35,7 @@ class MediaButton extends React.Component {
     handleClick(e) {
         if (e.altKey) {
 
-            this.chooseButton()
+            this.chooseButton();
         }
         else {
             this.playSample();
@@ -86,6 +86,7 @@ class MediaButton extends React.Component {
             isActive: true
         })
         this.audio.src = this.state.src;
+        this.audio.load();
     }
 
     render() {

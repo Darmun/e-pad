@@ -6,8 +6,8 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.audio = new Audio();
-        this.playToggle = this.playToggle.bind(this)
-        this.handleDrag = this.handleDrag.bind(this)
+        this.playToggle = this.playToggle.bind(this);
+        this.handleDrag = this.handleDrag.bind(this);
     }
 
     componentDidMount() {
@@ -38,7 +38,7 @@ export default class extends React.Component {
                 draggable
                 onDrag = {this.handleDrag}
             >
-                <ListItemText inset secondary={this.props.audioSample.name}/>
+                <ListItemText inset secondary = {this.props.audioSample.name}/>
             </ListItem>
         )
     }

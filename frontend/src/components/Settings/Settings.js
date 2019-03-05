@@ -34,13 +34,15 @@ const styles = theme => ({
 
 class NestedList extends React.Component {
 
-  trackList = sampleArray => sampleArray.map(track =>
+  trackList = sampleArray => {
+    sampleArray.map(track =>
       <Sample
         key = {track.name}
         dragStart = {this.props.storeDraggedItem}
         audioSample = {track}
         volume = {this.props.volume}
         />)
+  };
 
   render() {
     const { classes } = this.props;
@@ -48,7 +50,9 @@ class NestedList extends React.Component {
     return (
       <List
         component = "nav"
-        subheader = {<ListSubheader component="div">E-pad</ListSubheader>}
+        subheader = {<ListSubheader component = "div">
+          E-pad
+        </ListSubheader>}
         className = {classes.root}
         >
         <ListItem>
@@ -68,14 +72,14 @@ class NestedList extends React.Component {
             <Select
               quantity = "Columns"
               value = {this.props.columns}
-              onChange = {this.props.columnsChange}
+              onChange = {this.props.configChange('columns')}
               />
           </ListItem>
           <ListItem>
             <Select
               quantity = "Rows"
               value = {this.props.rows}
-              onChange = {this.props.rowsChange}
+              onChange = {this.props.configChange('rows')}
               />
           </ListItem>
         </SubMenu>
@@ -83,16 +87,16 @@ class NestedList extends React.Component {
           title = "Samples"
           icon = {<Audiotrack />}
           >
-          <SampleList category ="Percussion">
+          <SampleList category = "Percussion">
             {this.trackList(percussion)}
           </SampleList>
           <SampleList category = "Arps">
             {this.trackList(arps)}
           </SampleList>
-          <SampleList category ="Kicks">
+          <SampleList category = "Kicks">
             {this.trackList(kicks)}
           </SampleList>
-          <SampleList category ="Claps">
+          <SampleList category = "Claps">
             {this.trackList(claps)}
           </SampleList>
         </SubMenu>
