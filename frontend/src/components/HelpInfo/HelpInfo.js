@@ -1,44 +1,41 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@material-ui/core/Typography';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Help from '@material-ui/icons/Help';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Typography from "@material-ui/core/Typography";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Help from "@material-ui/icons/Help";
 
 const DialogTitle = withStyles(theme => ({
   root: {
     borderBottom: `1px solid ${theme.palette.divider}`,
     margin: 0,
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 2
   },
   closeButton: {
-    position: 'absolute',
+    position: "absolute",
     right: theme.spacing.unit,
     top: theme.spacing.unit,
-    color: theme.palette.grey[500],
-  },
+    color: theme.palette.grey[500]
+  }
 }))(props => {
   const { children, classes, onClose } = props;
   return (
-    <MuiDialogTitle
-      disableTypography
-      className = {classes.root}>
-      <Typography variant="h6">
-      {children}
-      </Typography>
+    <MuiDialogTitle disableTypography className={classes.root}>
+      <Typography variant="h6">{children}</Typography>
       {onClose ? (
-        <IconButton 
-        aria-label = "Close" 
-        className = {classes.closeButton} 
-        onClick = {onClose}>
+        <IconButton
+          aria-label="Close"
+          className={classes.closeButton}
+          onClick={onClose}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -49,63 +46,56 @@ const DialogTitle = withStyles(theme => ({
 const DialogContent = withStyles(theme => ({
   root: {
     margin: 0,
-    padding: theme.spacing.unit * 2,
-  },
+    padding: theme.spacing.unit * 2
+  }
 }))(MuiDialogContent);
 
 const DialogActions = withStyles(theme => ({
   root: {
     borderTop: `1px solid ${theme.palette.divider}`,
     margin: 0,
-    padding: theme.spacing.unit,
-  },
+    padding: theme.spacing.unit
+  }
 }))(MuiDialogActions);
 
 class HelpInfo extends React.Component {
-  constructor(props){
-    super(props)
-  this.state = {
-    open: false,
-  };
-  
-this.handleClickOpen = this.handleClickOpen.bind(this)
-this.handleClose = this.handleClose.bind(this)
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
 
-  handleClickOpen () {
+    this.handleClickOpen = this.handleClickOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+  }
+
+  handleClickOpen() {
     this.setState({
-      open: true,
+      open: true
     });
-  };
+  }
 
-  handleClose () {
-    this.setState({ 
-      open: false 
+  handleClose() {
+    this.setState({
+      open: false
     });
-  };
+  }
 
   render() {
     return (
       <div>
-        <ListItem
-          button
-          onClick={this.handleClickOpen}>
+        <ListItem button onClick={this.handleClickOpen}>
           <ListItemIcon>
             <Help />
           </ListItemIcon>
-          <ListItemText
-            inset
-            primary="Help"/>
+          <ListItemText inset primary="Help" />
         </ListItem>
         <Dialog
           onClose={this.handleClose}
           aria-labelledby="customized-dialog-title"
           open={this.state.open}
-          >
-          <DialogTitle
-            id="customized-dialog-title"
-            onClose={this.handleClose}
-            >
+        >
+          <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
             Pad Configuration
           </DialogTitle>
           <DialogContent>
@@ -119,21 +109,19 @@ this.handleClose = this.handleClose.bind(this)
               Select sample from the categories of "Sample" menu.
             </Typography>
             <Typography gutterBottom>
-              You can check the sample by single clicking on the
-              item in the sample list, and stop it by double clicking it.
-              Drag the list item and drop it on the pad button to assign the track.
-              Once button is active, it can be triggered by single click.
+              You can check the sample by single clicking on the item in the
+              sample list, and stop it by double clicking it. Drag the list item
+              and drop it on the pad button to assign the track. Once button is
+              active, it can be triggered by single click.
             </Typography>
             <Typography gutterBottom>
-              Active pad button can be bind to keyboard button:
-              hold alt and click on the pad-button, and then press
-              the key you want to assign.
+              Active pad button can be bind to keyboard button: hold alt and
+              click on the pad-button, and then press the key you want to
+              assign.
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button
-              onClick={this.handleClose}
-              color="primary">
+            <Button onClick={this.handleClose} color="primary">
               Close
             </Button>
           </DialogActions>
