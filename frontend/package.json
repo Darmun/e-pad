@@ -1,7 +1,7 @@
 {
   "name": "e-pad",
   "version": "0.1.0",
-  "homepage": "https://Darmun.github.io/e-pad/frontend",
+  "homepage": "https://Darmun.github.io/e-pad/frontend/src",
   "private": true,
   "proxy": "http://localhost:3000",
   "dependencies": {
